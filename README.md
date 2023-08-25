@@ -1,5 +1,5 @@
 # EnergyApp
-**Real-time visualization and prediction system for electrical energy consumption data**
+> **Real-time visualization and prediction system for electrical energy consumption data**
 
 This project is part of my thesis for my bachelor degree on Informatics and Telematics.
 
