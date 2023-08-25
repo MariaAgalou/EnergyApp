@@ -16,5 +16,7 @@ Frameworks Django and React as well as HTML & CSS were used for the front-end an
 
 **To run this app:**
 
-- You need to have Python, Django, React and MongoDB installed in your system.
-- 
+- Be sure that you have Python, Django, React and MongoDB installed in your system.
+- Download the project and save it in a directory in your filesystem
+- blah
+- Go to http://...... and use the application
