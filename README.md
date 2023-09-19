@@ -10,13 +10,14 @@ Energy App is a web application that was developed in order to be a useful tool 
 3) Predict the electrical energy consumption in the future using machine learning algorithms
 4) See how successful and accurate the predictions that this application makes are
 
-Frameworks Django and React as well as HTML & CSS were used for the front-end and back-end part of the application, while MongoDB was used as a database. The machine learning algorithms that were tested were ARIMA, LSTM, GRU and Transformers. The whole project is written in Python.
+Framework Django as well as Javascript, HTML & CSS were used for the front-end and back-end part of the application, while MongoDB was used as a database. The machine learning algorithms that were tested were ARIMA, LSTM, GRU and Transformers. The whole project is written in Python.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **To run this app:**
 
-- Be sure that you have Python, Django, React and MongoDB installed in your system.
-- Download the project and save it in a directory in your filesystem
-- blah
-- Open a web browser, go to http://...... and use the application
+- Be sure that you have Python, Django, MongoDB and all the necessary modules/packages installed in your system.
+- Download the project and save it in a directory in your filesystem.
+- Make sure you have MongoDB server running.
+- Open an IDE, activate a virtual environment, open the project and run the command "py manage.py runserver".
+- Open a web browser, go to http://127.0.0.1:8000/ and use the application.
