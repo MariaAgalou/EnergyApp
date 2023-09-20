@@ -18,7 +18,6 @@ Framework Django as well as Javascript, HTML & CSS were used for the front-end a
 
 - Be sure that you have Python, Django, MongoDB and all the necessary modules installed in your system.
 - Download the project and save it in a directory in your filesystem.
-- Make sure you have MongoDB server running.
 - Connect to MongoDB.
 - Open the project inside an IDE and run the command "py manage.py runserver".
 - Open a web browser, go to http://127.0.0.1:8000/ and use the application.
