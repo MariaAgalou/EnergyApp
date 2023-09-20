@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Overview</title>
+<style>
+
+/*Menu*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #ddd;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 25px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover {
+  background-color: #EEC4C4;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #EEC4C4;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+li a.active {
+  color: white;
+  background-color: #2B9DBE;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 77px;
+  right: 8px;
+  font-size: 18px;
+}
+
+/*Statistics*/
+#par1 {
+  position: absolute;
+  top: 100px;
+  left: 550px;
+  color: black;
+  font-size: 22px;
+}
+
+#par2 {
+  position: absolute;
+  bottom: -120px;
+  left: 100px;
+  color: black;
+  font-size: 22px;
+}
+
+#par3 {
+  position: absolute;
+  bottom: -120px;
+  left: 530px;
+  color: black;
+  font-size: 22px;
+}
+
+#par4 {
+  position: absolute;
+  bottom: -120px;
+  right: 200px;
+  color: black;
+  font-size: 22px;
+}
+
+#par5 {
+  position: absolute;
+  bottom: -190px;
+  left: 160px;
+  color: black;
+  font-size: 30px;
+}
+
+#par6 {
+  position: absolute;
+  bottom: -190px;
+  left: 570px;
+  color: black;
+  font-size: 30px;
+}
+
+#par7 {
+  position: absolute;
+  bottom: -190px;
+  right: 250px;
+  color: black;
+  font-size: 30px;
+}
+
+#par8 {
+  position: absolute;
+  bottom: -240px;
+  left: 100px;
+  color: black;
+  font-size: 18px;
+}
+
+#par9 {
+  position: absolute;
+  bottom: -300px;
+  left: 100px;
+  color: black;
+  font-size: 18px;
+}
+
+#par10 {
+  position: absolute;
+  bottom: -240px;
+  left: 530px;
+  color: black;
+  font-size: 18px;
+}
+
+#par11 {
+  position: absolute;
+  bottom: -300px;
+  left: 520px;
+  color: black;
+  font-size: 18px;
+}
+
+#par12 {
+  position: absolute;
+  bottom: -240px;
+  right: 250px;
+  color: black;
+  font-size: 18px;
+}
+
+#par13 {
+  position: absolute;
+  bottom: -300px;
+  right: 150px;
+  color: black;
+  font-size: 18px;
+}
+
+#par14 {
+  position: absolute;
+  bottom: -50px;
+  left: 320px;
+  color: black;
+  font-size: 20px;
+}
+
+/*Graph*/
+img {
+  position: absolute;
+  top: 150px;
+  left: 340px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!--Menu-->
+<ul>
+  <li><h2> &nbsp Energy App &nbsp </h2></li>       <!--&nbsp = space-->
+  <li><a href="{% url 'overview' %}">Overview</a></li>
+  <li><a href="{% url 'records' %}">Records</a></li>
+  <li><a href="{% url 'future_consumption' %}">Future Consumption</a></li>
+  <li><a href="{% url 'customers' %}">Customers</a></li>
+  <li style="float:right;", class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Avatar</a>
+    <div class="dropdown-content">
+      <a href="{% url 'profile1' %}">Profile</a>
+      <a href="{% url 'info' %}">Info</a>
+      <a href="{% url 'help' %}">Help/Contact</a>
+      <a href="{% url 'log_out' %}">Log Out</a>
+    </div>
+</ul>
+
+<!--Statistics Text-->
+<p id="par1"><b>Statistics for last 24 hours</b></p>
+<p id="par14"><b>A line chart depicting the total consumption of all customers for the past 24 hours</b></p>
+
+<img src="data:image/png;base64,{{ graph }}" alt="Graph"  class="blog-image">
+
+<p id="par2">Minimum Consumption:</p>
+<p id="par3">Average Consumption:</p>
+<p id="par4">Maximum Consumption:</p>
+
+<p id="par5"><b> {{ item1 }} kWh</b></p>
+<p id="par6"><b> {{ item2 }} kWh</b></p>
+<p id="par7"><b> {{ item3 }} kWh</b></p>
+
+<p id="par8">Home ID: {{ item4 }}</p>
+<p id="par9">Average Time of Consumption: {{ item7 }}</p>
+<p id="par10">Home ID: {{ item5 }}</p>
+<p id="par11">Average Time of Consumption: {{ item8 }}</p>
+<p id="par12">Home ID: {{ item6 }}</p>
+<p id="par13">Average Time of Consumption: {{ item9 }}</p>
+
+</body>
+</html>
