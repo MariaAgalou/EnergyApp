@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+<style>
+
+/*Menu*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #ddd;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 25px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover {
+  background-color: #EEC4C4;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #EEC4C4;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+li a.active {
+  color: white;
+  background-color: #2B9DBE;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 77px;
+  right: 8px;
+  font-size: 18px;
+}
+
+/*Image*/
+img {
+  position: absolute;
+  top: 120px;
+  left: 50px;
+}
+
+/*Username Text*/
+#par0 {
+  position: absolute;
+  top: 240px;
+  left: 70px;
+  font-size: 25px;
+}
+
+/*Buttons*/
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {background-color: red;} 
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0.56,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button1 {
+  position: absolute;
+  bottom: -55px;
+  right: 650px;
+}
+
+.button2 {
+  position: absolute;
+  bottom: -120px;
+  right: 220px;
+}
+
+/*Form*/
+.center-form {
+  position: relative;
+  top: 70px;
+  left: 280px;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!--Menu-->
+<ul>
+  <li><h2> &nbsp Energy App &nbsp </h2></li>       <!--&nbsp = space-->
+  <li><a href="{% url 'overview' %}">Overview</a></li>
+  <li><a href="{% url 'records' %}">Records</a></li>
+  <li><a href="{% url 'future_consumption' %}">Future Consumption</a></li>
+  <li><a href="{% url 'customers' %}">Customers</a></li>
+  <li style="float:right;", class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Avatar</a>
+    <div class="dropdown-content">
+      <a href="{% url 'profile1' %}">Profile</a>
+      <a href="{% url 'info' %}">Info</a>
+      <a href="{% url 'help' %}">Help/Contact</a>
+      <a href="{% url 'log_out' %}">Log Out</a>
+    </div>
+</ul>
+
+
+<!--Image-->
+{% load static %}
+<img src="{% static 'app/user.png' %}" alt="Profile Icon"  style="width:140px;height:140px;">
+
+
+<!--Button-->
+<button class="button button2" id="btn2" onClick="location.href = 'http://127.0.0.1:8000/profile1';" >Cancel</button>
+
+
+{% for x in user_profile %}
+<p id="par0">{{ x.username }}</p>
+
+<!--Form-->
+<div class="center-form">
+<form action="" method="post" id="frm">
+  {% csrf_token %}
+  Email: <input type="email" id="email" name="email" placeholder="Email" value={{ x.email }} required><br><br><br>
+  First & Last Name: <input type="text" id="flname" name="flname" placeholder="First & Last Name" value={{ x.flname }} required><br><br><br>
+  Username: <input type="text" id="username" name="username" placeholder="Username" value={{ x.username }} required><br><br><br>
+  Password: <input type="password" id="password" name="password" placeholder="Password" value={{ x.password }} required><br><br><br>
+
+  Phone Number: <input type="text" id="phone" name="phone" placeholder="Phone Number" value={{ x.phone }} required><br><br><br>
+  Address - City: <input type="text" id="address" name="address" placeholder="Address, PS, City" value={{ x.address }}><br><br><br>
+  Date of foundation: <input type="date" id="date" name="date" placeholder="Date" value={{ x.foundationdate }}><br><br><br>
+  Website: <input type="text" id="website" name="website" placeholder="Website" value={{ x.website }}><br><br><br>
+  <button type="button" class="button button1" id="btn1">Save</button>
+</form>
+</div>
+{% endfor %}
+
+
+<!--Javascript code to show popup message-->
+<script>
+  document.getElementById('btn1').addEventListener('click', function () {
+    
+    if (confirm("Do you want to save the changes you made?")) {
+      document.getElementById('frm').submit();
+      alert("Changes have been successfully saved!")
+
+    } else {
+      window.location.href = "http://127.0.0.1:8000/profile1";
+      alert("Changes discarded!")
+      
+    }
+  })
+</script>
+
+</body>
+</html>

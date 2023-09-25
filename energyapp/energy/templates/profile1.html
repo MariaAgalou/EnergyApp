@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+<style>
+
+/*Menu*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #ddd;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 25px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover {
+  background-color: #EEC4C4;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #EEC4C4;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+li a.active {
+  color: white;
+  background-color: #2B9DBE;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 77px;
+  right: 8px;
+  font-size: 18px;
+}
+
+/*Image*/
+img {
+  position: absolute;
+  top: 120px;
+  left: 50px;
+}
+
+/*Data*/
+#par0 {
+  position: absolute;
+  top: 240px;
+  left: 70px;
+  font-size: 25px;
+}
+
+#par1 {
+  position: absolute;
+  top: 120px;
+  left: 280px;
+  font-size: 22px;
+}
+
+#par2 {
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  font-size: 22px;
+}
+
+#par3 {
+  position: absolute;
+  top: 240px;
+  left: 280px;
+  font-size: 22px;
+}
+
+#par4 {
+  position: absolute;
+  top: 300px;
+  left: 280px;
+  font-size: 22px;
+}
+
+#par5 {
+  position: absolute;
+  top: 360px;
+  left: 280px;
+  font-size: 22px;
+}
+
+#par6 {
+  position: absolute;
+  top: 420px;
+  left: 280px;
+  font-size: 22px;
+}
+
+#par7 {
+  position: absolute;
+  top: 480px;
+  left: 280px;
+  font-size: 22px;
+}
+
+#par8 {
+  position: absolute;
+  top: 540px;
+  left: 280px;
+  font-size: 22px;
+}
+
+/*Button*/
+.button {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0.56,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button {
+  position: absolute;
+  bottom: 10px;
+  right: 200px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!--Menu-->
+<ul>
+  <li><h2> &nbsp Energy App &nbsp </h2></li>       <!--&nbsp = space-->
+  <li><a href="{% url 'overview' %}">Overview</a></li>
+  <li><a href="{% url 'records' %}">Records</a></li>
+  <li><a href="{% url 'future_consumption' %}">Future Consumption</a></li>
+  <li><a href="{% url 'customers' %}">Customers</a></li>
+  <li style="float:right;", class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Avatar</a>
+    <div class="dropdown-content">
+      <a href="{% url 'profile1' %}">Profile</a>
+      <a href="{% url 'info' %}">Info</a>
+      <a href="{% url 'help' %}">Help/Contact</a>
+      <a href="{% url 'log_out' %}">Log Out</a>
+    </div>
+</ul>
+
+
+<!--Data-->
+{% load static %}
+<img src="{% static 'app/user.png' %}" alt="Profile Icon"  style="width:140px;height:140px;">
+
+{% for x in user_profile %}
+<p id="par0"> {{ x.username }} </p>
+<p id="par1"><u>Email:</u>  &nbsp &nbsp {{ x.email }} </p>
+<p id="par2"><u>First & Last Name:</u>  &nbsp &nbsp {{ x.flname }} </p>
+<p id="par3"><u>Username:</u>  &nbsp &nbsp {{ x.username }} </p>
+<p id="par4"><u>Password:</u>  &nbsp &nbsp ******** </p>
+<p id="par5"><u>Phone Number:</u>  &nbsp &nbsp {{ x.phone }} </p>
+<p id="par6"><u>Address - City:</u>  &nbsp &nbsp {{ x.address }} </p>
+<p id="par7"><u>Date of foundation:</u>  &nbsp &nbsp {{ x.foundationdate }} </p>
+<p id="par8"><u>Website:</u>  &nbsp &nbsp {{ x.website }} </p>
+{% endfor %}
+
+<button class="button" id="btn" onClick="location.href = 'http://127.0.0.1:8000/profile2';">Edit</button>
+
+
+</body>
+</html>
