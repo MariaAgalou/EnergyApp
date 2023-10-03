@@ -12,6 +12,8 @@ Energy App is a web application that was developed in order to be a useful tool 
 
 Framework Django as well as Javascript, HTML & CSS were used for the front-end and back-end part of the application, while MongoDB was used as a database. The machine learning algorithms that were tested were ARIMA, LSTM, GRU and Transformers. The whole project is written in Python.
 
+The dataset used is the following: https://data.london.gov.uk/dataset/smartmeter-energy-use-data-in-london-households
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **To run this app:**
